@@ -2,11 +2,12 @@ package com.self.viewtoglrendering;
 
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.unity3d.player.R;
 import com.self.viewtoglrendering.cuberenerer.CubeGLRenderer;
 
 public class MainActivity extends AppCompatActivity

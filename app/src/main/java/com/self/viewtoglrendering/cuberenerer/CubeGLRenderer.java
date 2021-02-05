@@ -6,7 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.os.SystemClock;
 
-import com.self.viewtoglrendering.R;
+import com.unity3d.player.R;
 import com.self.viewtoglrendering.ViewToGLRenderer;
 
 import java.nio.ByteBuffer;
