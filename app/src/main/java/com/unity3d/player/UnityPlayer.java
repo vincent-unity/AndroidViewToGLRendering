@@ -526,7 +526,9 @@ public class UnityPlayer extends FrameLayout implements IUnityPlayerServices, IU
     private SurfaceView CreateGlView()
     {
         SurfaceView ret = new SurfaceView(mContext);
-        ret.getHolder().addCallback(unityViewHolder);
+        if(unityViewHolder != null){
+            ret.getHolder().addCallback(unityViewHolder);
+        }
         ret.setId(mContext.getResources().getIdentifier("unitySurfaceView", "id", mContext.getPackageName()));
         if (IsWindowTranslucent())
         {
