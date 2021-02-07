@@ -2,11 +2,18 @@ package com.self.viewtoglrendering;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.FrameLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.unity3d.player.R;
@@ -15,9 +22,8 @@ import com.unity3d.player.UnityPlayer;
 
 public class MainActivity extends AppCompatActivity
 {
-    private GLSurfaceView mGLSurfaceView;
+    private SurfaceView mSurfaceView;
     private UnityPlayer mUnityPlayer;
-    private WebView mWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,23 +32,29 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initViews() {
-        //setContentView(R.layout.activity_main);
+        mSurfaceView = new SurfaceView(this);
+        mSurfaceView.setZOrderOnTop(true);
+        mSurfaceView.getHolder().addCallback(new SurfaceHolder.Callback(){
+            public final void surfaceCreated(SurfaceHolder surfaceHolder) {
+                Log.v("Unity", "Change Surface");
+                surfaceHolder.setFixedSize(150, 200);
+                mUnityPlayer.displayChanged(0, surfaceHolder.getSurface());
+            }
 
-        //ViewToGLRenderer viewToGlRenderer = new CubeGLRenderer(this);
+            public final void surfaceChanged(SurfaceHolder surfaceHolder, int format, int width, int height) {
+                mUnityPlayer.displayChanged(0, surfaceHolder.getSurface());
+            }
 
-        //mGLSurfaceView = (GLSurfaceView) findViewById(R.id.gl_surface_view);
+            public final void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+                mUnityPlayer.displayChanged(0, null);
+            }
+        });
+        setContentView(mSurfaceView);
+
         mUnityPlayer = new UnityPlayer(this);
+//        addContentView(mUnityPlayer, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
-        //mGLSurfaceView.setEGLContextClientVersion(2);
-        //mGLSurfaceView.setRenderer(viewToGlRenderer);
-
-        //mUnityPlayer.setViewToGLRenderer(viewToGlRenderer);
-        setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
-
-//        mWebView.setWebViewClient(new WebViewClient());
-//        mWebView.setWebChromeClient(new WebChromeClient());
-//        mWebView.loadUrl("http://stackoverflow.com/questions/12499396/is-it-possible-to-render-an-android-view-to-an-opengl-fbo-or-texture");
     }
 
 //    protected void onDestroy() {
