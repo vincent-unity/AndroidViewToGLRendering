@@ -3,35 +3,41 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <android.opengl.GLSurfaceView
-        android:id="@+id/gl_surface_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+<!--    <android.opengl.GLSurfaceView-->
+<!--        android:id="@+id/gl_surface_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
-    <!-- a view to be rendered to gl surface-->
-    <com.self.viewtoglrendering.GLLinearLayout
-        android:id="@+id/gl_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical">
+<!--    &lt;!&ndash; a view to be rendered to gl surface&ndash;&gt;-->
+<!--    <com.self.viewtoglrendering.GLLinearLayout-->
+<!--        android:id="@+id/gl_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="@android:color/white"-->
+<!--        android:orientation="vertical">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello from TextView"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Hello from TextView"/>-->
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_launcher"/>
+<!--        <ImageView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:src="@drawable/ic_launcher"/>-->
 
-        <WebView
-            android:id="@+id/web_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+<!--        <WebView-->
+<!--            android:id="@+id/web_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"/>-->
 
-    </com.self.viewtoglrendering.GLLinearLayout>
+<!--    </com.self.viewtoglrendering.GLLinearLayout>-->
 
+<!--    <com.unity3d.player.UnityPlayer-->
+<!--        android:id="@+id/gl_layout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+
+<!--    </com.unity3d.player.UnityPlayer>-->
 
 </RelativeLayout>

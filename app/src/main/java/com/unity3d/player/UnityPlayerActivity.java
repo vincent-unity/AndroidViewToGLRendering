@@ -39,7 +39,6 @@ public class UnityPlayerActivity extends Activity implements IUnityPlayerLifecyc
         this.mUnityPlayer.requestFocus();
     }
 
-
     public void onUnityPlayerUnloaded() {
         this.moveTaskToBack(true);
     }

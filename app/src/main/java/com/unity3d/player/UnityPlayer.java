@@ -63,20 +63,24 @@ import android.view.OrientationEventListener;
 import android.hardware.SensorManager;
 
 import com.self.viewtoglrendering.GLRenderable;
+import com.self.viewtoglrendering.ViewToGLRenderer;
 
 import static com.unity3d.player.PlatformSupport.*;
 
-public class UnityPlayer extends FrameLayout implements IUnityPlayerServices, IUnityPlayerLifecycleEvents
+public class UnityPlayer extends FrameLayout implements IUnityPlayerServices, IUnityPlayerLifecycleEvents//, GLRenderable
 {
-//    public GLRenderable getExternalGLRenderable() {
-//        return externalGLRenderable;
-//    }
-//
-//    public void setExternalGLRenderable(GLRenderable externalGLRenderable) {
-//        this.externalGLRenderable = externalGLRenderable;
-//    }
-//
-//    private GLRenderable externalGLRenderable;
+    private ViewToGLRenderer mViewToGLRenderer;
+
+    public void setViewToGLRenderer(ViewToGLRenderer externalGLRenderable) {
+        mViewToGLRenderer = externalGLRenderable;
+    }
+
+    // drawing magic
+//    @Override
+////    public void draw(Canvas canvas) {
+////        super.draw(canvas);
+////        mGlView.draw(canvas);
+////    }
 
     public static SurfaceHolder.Callback getUnityViewHolder() {
         return unityViewHolder;
